@@ -156,6 +156,21 @@ body {
     margin: 3px 0;
     transition: 0.3s;
 }
+/* kiyu-logo */
+
+.nav-logo {
+    height: 80px;  /*Set this to the desired height of your logo area */
+    display: flex;
+    align-items: center;
+}
+
+.kiyu-logo {
+    height: 100%;        
+    width: 100%;         
+    object-fit: contain; 
+    /* display: block;       */
+}
+
 
 /* Hero Section */
 .hero {
@@ -559,6 +574,12 @@ body {
 .member-image-placeholder i {
     font-size: 3rem;
     margin-bottom: 1rem;
+}
+
+.member-photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .upload-text {
