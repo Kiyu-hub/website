@@ -165,7 +165,7 @@ body {
 }
 
 .kiyu-logo {
-    height: 200px;        
+    height: 200%;        
     width: 200px;         
     object-fit: contain; 
     /* display: block;       */
