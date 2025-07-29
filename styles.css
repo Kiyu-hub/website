@@ -162,11 +162,11 @@ body {
 .nav-logo {
     display: flex;
     align-items: center;
-    height: 30%; /* Reduced from 60px for slimmer navbar */
+    height: 100%; /* Reduced from 60px for slimmer navbar */
 }
 
 .kiyu-logo {
-    height: 100%;        /* Reduced from 45px to match slimmer navbar */
+    height: 200%;        /* Reduced from 45px to match slimmer navbar */
     width: auto;         /* Auto width maintains aspect ratio */
     object-fit: contain; 
     display: block;       
