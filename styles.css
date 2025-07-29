@@ -85,16 +85,19 @@ body {
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: all 0.3s ease;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
+    min-height: 70px;
 }
 
 .navbar.scrolled {
     background: rgba(255, 255, 255, 0.98);
     box-shadow: var(--shadow-md);
+    padding: 0.5rem 0;
 }
 
 .nav-container {
     max-width: 1200px;
+    height: 100%;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -102,25 +105,49 @@ body {
     align-items: center;
 }
 
+/* Logo Styles - Professional Sizing */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.kiyu-logo {
+    height: 40px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    display: block;
+    transition: all 0.3s ease;
+}
+
 .nav-logo h2 {
     color: var(--primary-color);
     font-size: 1.8rem;
     font-weight: 700;
+    margin-left: 10px;
 }
 
+/* Navigation Menu */
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 1.5rem; /* Reduced gap for tighter spacing */
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
 }
 
 .nav-link {
     text-decoration: none;
     color: var(--text-dark);
     font-weight: 500;
-    font-size: 0.95rem; /* Slightly smaller font for sleeker look */
-    transition: color 0.3s ease;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
     position: relative;
+    padding: 0.5rem 0;
+    white-space: nowrap;
 }
 
 .nav-link:hover,
@@ -131,7 +158,7 @@ body {
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
@@ -144,10 +171,13 @@ body {
     width: 100%;
 }
 
+/* Mobile Menu Toggle */
 .nav-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
 }
 
 .bar {
@@ -155,35 +185,56 @@ body {
     height: 3px;
     background: var(--text-dark);
     margin: 3px 0;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
-/* FIXED Logo Styles */
-.nav-logo {
-    display: flex;
-    align-items: center;
-    height: 100%; /* Reduced from 60px for slimmer navbar */
+/* Mobile Menu Animation */
+.nav-toggle.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-.kiyu-logo {
-    height: 200%;        /* Reduced from 45px to match slimmer navbar */
-    width: auto;         /* Auto width maintains aspect ratio */
-    object-fit: contain; 
-    display: block;       
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
 }
 
-/* Responsive adjustments */
+.nav-toggle.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
     .navbar {
-        padding: 0.4rem 0; /* Even slimmer on mobile */
+        padding: 0.5rem 0;
+        min-height: 60px;
+    }
+    
+    .navbar.scrolled {
+        padding: 0.4rem 0;
     }
     
     .nav-logo {
-        height: 40px; /* Reduced mobile height */
+        height: 40px;
     }
     
     .kiyu-logo {
-        height: 28px; /* Smaller mobile logo */
+        height: 32px;
+        max-width: 120px;
     }
     
     .nav-toggle {
@@ -193,70 +244,59 @@ body {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 56px; /* Adjusted for slimmer navbar */
+        top: 60px;
         flex-direction: column;
         background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
-        box-shadow: var(--shadow-md);
-        padding: 1.5rem 0; /* Reduced padding */
-        gap: 1rem;
-    }
-    
-    .nav-menu.active {
-        left: 0;
-    }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 0.8rem 0;
-    }
-    
-    .nav-logo {
-        height: 50px;
-    }
-    
-    .kiyu-logo {
-        height: 35px;
-    }
-    
-    .nav-toggle {
-        display: flex;
-    }
-    
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.98);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
+        transition: all 0.3s ease;
         box-shadow: var(--shadow-md);
         padding: 2rem 0;
-        gap: 1rem;
+        gap: 1.5rem;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
     }
     
     .nav-menu.active {
         left: 0;
     }
-
-.nav-logo {
-    height: 10%;  /*Set this to the desired height of your logo area */
-    display: flex;
-    align-items: center;
+    
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.75rem 0;
+    }
 }
 
-.kiyu-logo {
-    height: 30%;        
-    width: 30%;         
-    object-fit: contain; 
-     display: block;       
+/* Small Mobile */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 10px;
+    }
+    
+    .kiyu-logo {
+        height: 28px;
+        max-width: 100px;
+    }
+    
+    .nav-menu {
+        top: 55px;
+        padding: 1.5rem 0;
+    }
 }
 
+/* Logo hover effect for better interactivity */
+.nav-logo:hover .kiyu-logo {
+    transform: scale(1.05);
+}
+
+/* Ensure logo doesn't interfere with menu on very small screens */
+@media (max-width: 320px) {
+    .kiyu-logo {
+        height: 24px;
+        max-width: 80px;
+    }
+}
 
 /* Hero Section */
 .hero {
