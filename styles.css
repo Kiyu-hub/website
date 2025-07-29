@@ -159,7 +159,7 @@ body {
 /* kiyu-logo */
 
 .nav-logo {
-    height: 0.05%;  /*Set this to the desired height of your logo area */
+    height: 0%;  /*Set this to the desired height of your logo area */
     display: flex;
     align-items: center;
 }
