@@ -159,14 +159,14 @@ body {
 /* kiyu-logo */
 
 .nav-logo {
-    height: 35px;  /*Set this to the desired height of your logo area */
+    height: 40px;  /*Set this to the desired height of your logo area */
     display: flex;
     align-items: center;
 }
 
 .kiyu-logo {
-    height: 40%;        
-    width: auto;         
+    height: 100%;        
+    width: 100%;         
     object-fit: contain; 
      display: block;       
 }
