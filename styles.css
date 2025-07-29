@@ -105,7 +105,7 @@ body {
 .nav-logo h2 {
     color: var(--primary-color);
     font-size: 1.8rem;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .nav-menu {
@@ -166,7 +166,7 @@ body {
 }
 
 .kiyu-logo {
-    height: 32px;        /* Reduced from 45px to match slimmer navbar */
+    height: 100%;        /* Reduced from 45px to match slimmer navbar */
     width: auto;         /* Auto width maintains aspect ratio */
     object-fit: contain; 
     display: block;       
